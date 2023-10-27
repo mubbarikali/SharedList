@@ -1,5 +1,5 @@
 const express = require('express');
-const coursesRouter = require('./routes/courses');
+const itemsRouter = require('./routes/items');
 const dotenv = require("dotenv").config();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 app.use(bodyParser.json());
-app.use("/api/v1/courses/", coursesRouter);
+app.use("/items/", itemsRouter);
 
 mongoose.connect(process.env.DB_CONNECTION_URL)
   .then(() => {
