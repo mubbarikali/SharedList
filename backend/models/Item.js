@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const Item = mongoose.Schema({
     itemName: {
         type: String,
-        require: true
+        require: [true, "Please add an item name."]
     },
 
     bought: {
         type: Boolean,
-        require: true
+        require: [true, "Please add bought status as well."]
     }
 
 });

@@ -2,22 +2,22 @@ const express = require('express');
 const itemsRouter = require('./routes/items');
 const dotenv = require("dotenv").config();
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-
+const errorHandler = require('./middleware/errorMiddleware');
+const port = process.env.PORT || 2001;
+const connectDB = require('./config/db');
 const app = express();
 
+//Connecting with DB.
+connectDB();
+
+//Middlewares
 app.use(bodyParser.json());
 app.use("/items/", itemsRouter);
-
-mongoose.connect(process.env.DB_CONNECTION_URL)
-  .then(() => {
-    console.log("Connected to DB.");
-  })
-  .catch((err) => {
-    console.error("Error connecting to DB:", err);
-  });
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
-app.listen(process.env.PORT, ()=>{
+// app.use(errorHandler);
+app.listen(port, ()=>{
     console.log("Server running on port 2000");
 });
