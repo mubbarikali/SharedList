@@ -1,5 +1,5 @@
 const { Error } = require('mongoose');
-const Item = require('../models/Item');
+const Item = require('../models/ItemModel');
 
 const getItems = async (req, res) => {
   try {
