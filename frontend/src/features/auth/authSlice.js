@@ -26,9 +26,9 @@ export const authSlice = createSlice({
     initialState,
     reducers: {
         reset: (state)=>{
-            state.isError = false;
-            state.isSuccess = false;
             state.isLoading = false;
+            state.isSuccess = false;
+            state.isError = false;
             state.message = '';
         }
     },
@@ -42,8 +42,7 @@ export const authSlice = createSlice({
         })
         .addCase(register.rejected, (state, action)=>{
             state.isLoading = false;
-            state.isLoading = false;
-            state.isSuccess = false;
+            state.isError = true;
             state.message = action.payload;
             state.user = null;
         });

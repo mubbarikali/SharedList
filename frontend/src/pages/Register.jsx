@@ -14,7 +14,7 @@ function Register() {
     password2: '',
   })
 
-  const { name, email, password, password2 } = formData
+  const { name, email, password, password2 } = formData;
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
