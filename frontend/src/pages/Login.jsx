@@ -45,7 +45,7 @@ const navigate = useNavigate()
 const onChange = (e)=>{
 setFormData((previousState)=>({
   ...previousState,
-  [e.target.name]: [e.target.value]
+  [e.target.name]: e.target.value
   }))
 };
 
