@@ -72,14 +72,13 @@ const updateItem = asyncHandler(async (req, res) => {
       throw new Error('Item not found')
     }
 
-    const user = await User.findById(req.user.id);
     // Check for user
-    if (!user) {
+    if (!req.user) {
       res.status(404)
       throw new Error('User not found')
     }
     // Make sure the logged in user matches the item user
-    if (item.user.toString() !== user.id) {
+    if (item.user.toString() !== req.user.id) {
       res.status(401)
       throw new Error('User not authorized')
     }
@@ -106,14 +105,13 @@ if (!item) {
   throw new Error('Item not found')
 }
 
-const user = await User.findById(req.user.id);
 // Check for user
-if (!user) {
+if (!req.user) {
   res.status(404)
   throw new Error('User not found')
 }
 // Make sure the logged in user matches the item user
-if (item.user.toString() !== user.id) {
+if (item.user.toString() !== req.user.id) {
   res.status(401)
   throw new Error('User not authorized')
 }
