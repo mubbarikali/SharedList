@@ -45,9 +45,16 @@ export const authSlice = createSlice({
             state.isError = true;
             state.message = action.payload;
             state.user = null;
-        });
+        })
+        .addCase(logout.fulfilled, (state)=>{
+            state.user = null;
+        })
 
     }
+});
+
+export const logout = createAsyncThunk('user/auth', async ()=>{
+    await authService.logout();
 });
 
 export const {reset} = authSlice.actions;
