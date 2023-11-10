@@ -6,8 +6,8 @@ function ItemItem({ item }) {
 
   return (
     <div className='item'>
+      <h2>{item.itemName}</h2>
       <div>{new Date(item.createdAt).toLocaleString('en-US')}</div>
-      <h2>{item.text}</h2>
       <button onClick={() => dispatch(deleteItem(item._id))} className='close'>
         X
       </button>

@@ -12,7 +12,13 @@ const Item = mongoose.Schema({
         require: [true, "Please add an item name."]
     }
 
-});
+},
+
+{
+    timestamps: true  
+  }
+
+);
 
 
 module.exports = mongoose.model("items", Item);
