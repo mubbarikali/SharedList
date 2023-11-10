@@ -41,17 +41,17 @@ const getItem = asyncHandler(async (req, res) => {
 // @route   POST /api/v1/item
 // @access  Private
 const addItem = asyncHandler(async (req, res) => {
-  const { itemName, bought } = req.body;
+  const { itemName} = req.body;
 
-  if (!itemName || bought === undefined) {
-    return res.status(400).json({ message: 'Please provide both itemName and bought to add a new item.' },
-    itemName,
-    bought);
+  
+  if (!itemName) {
+    return res.status(400).json({ message: 'Please provide itemName to add.' },
+    itemName);
 
   }
 
   try {
-    const item = await Item.create({ itemName, bought, user: req.user.id });
+    const item = await Item.create({ itemName, user: req.user.id });
     res.json(item);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });

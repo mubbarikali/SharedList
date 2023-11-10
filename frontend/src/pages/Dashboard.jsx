@@ -36,6 +36,7 @@ function Dashboard() {
       return;
     }
 
+    // console.log(fetchItems());
     fetchItems();
 
     dispatch(getItems)
