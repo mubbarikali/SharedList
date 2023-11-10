@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const itemsRouter = require('./routes/itemRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -16,6 +17,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use("/api/v1/items/", itemsRouter);
 app.use("/api/v1/users", userRoutes);
+
+
+// Serve frontend
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
+  
+    app.get('*', (req, res) =>
+      res.sendFile(
+        path.resolve(__dirname, '../', 'frontend', 'build', 'index.html')
+      )
+    );
+  } else {
+    app.get('/', (req, res) => res.send('Please set to production'));
+  }
 
 
 // app.use(errorHandler);

@@ -4,12 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend"
-    
-
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Mubbarik Ali",
   "license": "MIT",
