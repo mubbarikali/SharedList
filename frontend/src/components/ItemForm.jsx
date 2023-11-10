@@ -3,28 +3,28 @@ import { useDispatch } from 'react-redux'
 import { createItem } from '../features/items/itemSlice'
 
 function ItemForm() {
-  const [text, setText] = useState('')
+  const [itemName, setItemName] = useState('')
 
   const dispatch = useDispatch()
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(createItem({ text }))
-    setText('')
+    dispatch(createItem({ itemName }))
+    setItemName('')
   }
 
   return (
     <section className='form'>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
-          <label htmlFor='text'>Item</label>
+          <label htmlFor='itemName'>Item</label>
           <input
             type='text'
-            name='text'
-            id='text'
-            value={text}
-            onChange={(e) => setText(e.target.value)}
+            name='itemName'
+            id='itemName'
+            value={itemName}
+            onChange={(e) => setItemName(e.target.value)}
           />
         </div>
         <div className='form-group'>
