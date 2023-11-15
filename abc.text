@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/**",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/$1"
+    }
+  ],
+  "env": {
+    "PORT": "2000",
+    "NODE_ENV": "production",
+    "DB_CONNECTION_URL=mongodb": "mongodb://mubbarikali:01eXWkLCJTzgEo41@ac-ikwdvoz-shard-00-00.p3jz7zw.mongodb.net:27017,ac-ikwdvoz-shard-00-01.p3jz7zw.mongodb.net:27017,ac-ikwdvoz-shard-00-02.p3jz7zw.mongodb.net:27017/?replicaSet=atlas-f4jakr-shard-0&ssl=true&authSource=admin",
+    "JWT_SECRET": "ali123"
+  }
+}
