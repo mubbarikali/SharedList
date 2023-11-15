@@ -12,12 +12,16 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/v1/items/(.*)",
+      "dest": "backend/$1"
+    },
+    {
+      "src": "/api/v1/users/(.*)",
       "dest": "backend/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "frontend/$1"
+      "dest": "backend/$1"
     }
   ],
   "env": {
