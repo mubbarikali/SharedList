@@ -4,7 +4,7 @@ const itemsRouter = require('./routes/itemRoutes');
 const userRoutes = require('./routes/userRoutes');
 const dotenv = require("dotenv").config();
 const errorHandler = require('./middleware/errorMiddleware');
-const port = process.env.PORT || 2001;
+const port = process.env.PORT || 2000;
 const connectDB = require('./config/db');
 const app = express();
 
