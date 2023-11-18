@@ -4,10 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "concurrently \"npm run server\" \"npm run build\" \"npm run client\"",
-    "build": "cd frontend && npm run build",
-    "server": "nodemon backend/server.js",
+    "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
+    "start": "node backend/server.js",
     "client": "npm start --prefix frontend",
+    "server": "nodemon backend/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Mubbarik Ali",
