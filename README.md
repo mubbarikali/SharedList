@@ -2,22 +2,22 @@ SharedList App
 =============
 
 ## Scripts
-Run Backend and Frontend together:
+Build Backend and Frontend:
 
 ```sh
-npm run start
+npm run build
 ```
 
-Run Backend:
+Run production app:
 
 ```sh
-npm run server
+npm start
 ```
 
-Run Frontend:
+Run dev app:
 
 ```sh
-npm run client
+npm run dev
 ```
 
 
