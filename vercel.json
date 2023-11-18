@@ -6,28 +6,18 @@
       "use": "@vercel/node"
     },
     {
-      "src": "frontend/src/**",
+      "src": "frontend/build/**",
       "use": "@vercel/static-build"
     }
   ],
   "routes": [
     {
-      "src": "/api/v1/items/(.*)",
-      "dest": "backend/$1"
-    },
-    {
-      "src": "/api/v1/users/(.*)",
+      "src": "/api/(.*)",
       "dest": "backend/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "backend/$1"
+      "dest": "frontend/build/$1"
     }
-  ],
-  "env": {
-    "PORT": "2000",
-    "NODE_ENV": "production",
-    "DB_CONNECTION_URL": "mongodb://mubbarikali:01eXWkLCJTzgEo41@ac-ikwdvoz-shard-00-00.p3jz7zw.mongodb.net:27017,ac-ikwdvoz-shard-00-01.p3jz7zw.mongodb.net:27017,ac-ikwdvoz-shard-00-02.p3jz7zw.mongodb.net:27017/?replicaSet=atlas-f4jakr-shard-0&ssl=true&authSource=admin",
-    "JWT_SECRET": "ali123"
-  }
+  ]
 }
