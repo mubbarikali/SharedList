@@ -2,13 +2,13 @@
   "name": "sharedlist",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "build": "cd backend && npm install  && cd ../frontend && npm install && npm run build",
-    "start": "node backend/server.js",
+    "start": "node backend/app.js",
     "client": "npm start --prefix frontend",
-    "server": "nodemon backend/server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "app": "nodemon backend/app.js",
+    "dev": "concurrently \"npm run app\" \"npm run client\""
   },
   "author": "Mubbarik Ali",
   "license": "MIT",
