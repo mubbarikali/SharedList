@@ -1,0 +1,11 @@
+services:
+  web:
+    build: ./frontend
+    ports:
+      - 3000:3000
+  api:
+    build: ./backend
+    ports:
+      - 5000:5000
+    environment:
+      DB_CONNECTION_URL: mongodb://mubbarikali:01eXWkLCJTzgEo41@ac-ikwdvoz-shard-00-00.p3jz7zw.mongodb.net:27017,ac-ikwdvoz-shard-00-01.p3jz7zw.mongodb.net:27017,ac-ikwdvoz-shard-00-02.p3jz7zw.mongodb.net:27017/?replicaSet=atlas-f4jakr-shard-0&ssl=true&authSource=admin
